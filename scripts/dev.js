@@ -15,14 +15,19 @@ yarn dev core --formats cjs
 __DEV__=false yarn dev
 ```
 */
-
+/**
+ * 开发环境打包文件
+ */
 const execa = require('execa')
 const { fuzzyMatchTarget } = require('./utils')
 const args = require('minimist')(process.argv.slice(2))
+// 获取构建目标
 const target = args._.length ? fuzzyMatchTarget(args._)[0] : 'vue'
+// 获取format
 const formats = args.formats || args.f
+// 执行git操作,并截取输出
 const commit = execa.sync('git', ['rev-parse', 'HEAD']).stdout.slice(0, 7)
-
+// 开启进程调用rollup
 execa(
   'rollup',
   [

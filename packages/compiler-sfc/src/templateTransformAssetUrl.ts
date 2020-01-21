@@ -33,8 +33,8 @@ export const transformAssetUrl: NodeTransform = (node, context) => {
             if (!attr.value) return
             const url = parseUrl(attr.value.content)
             const exp = getImportsExpressionExp(
-              url.path,
-              url.hash,
+              url.path as string,
+              url.hash as string,
               attr.loc,
               context
             )

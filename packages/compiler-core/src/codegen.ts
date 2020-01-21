@@ -299,7 +299,7 @@ export function generate(
   return {
     ast,
     code: context.code,
-    map: context.map ? context.map.toJSON() : undefined
+    map: context.map ? (context.map as any).toJSON() : undefined
   }
 }
 

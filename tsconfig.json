@@ -37,6 +37,6 @@
     "packages/runtime-dom/jsx.d.ts",
     "packages/*/src",
     "packages/*/__tests__",
-    "test-dts"
+    "example"
   ]
 }

@@ -120,9 +120,9 @@ export function processExpression(
     enter(node: Node & PrefixMeta, parent) {
       if (node.type === 'Identifier') {
         if (!ids.includes(node)) {
-          const needPrefix = shouldPrefix(node, parent)
+          const needPrefix = shouldPrefix(node, parent as Node)
           if (!knownIds[node.name] && needPrefix) {
-            if (isPropertyShorthand(node, parent)) {
+            if (isPropertyShorthand(node, parent as Node)) {
               // property shorthand like { foo }, we need to add the key since we
               // rewrite the value
               node.prefix = `${node.name}: `
@@ -130,7 +130,7 @@ export function processExpression(
             node.name = `_ctx.${node.name}`
             node.isConstant = false
             ids.push(node)
-          } else if (!isStaticPropertyKey(node, parent)) {
+          } else if (!isStaticPropertyKey(node, parent as Node)) {
             // The identifier is considered constant unless it's pointing to a
             // scope variable (a v-for alias, or a v-slot prop)
             node.isConstant = !(needPrefix && knownIds[node.name])
@@ -142,13 +142,13 @@ export function processExpression(
       } else if (isFunction(node)) {
         // walk function expressions and add its arguments to known identifiers
         // so that we don't prefix them
-        node.params.forEach(p =>
+        node.params.forEach((p: any) =>
           walkJS(p, {
             enter(child, parent) {
               if (
                 child.type === 'Identifier' &&
                 // do not record as scope variable if is a destructured key
-                !isStaticPropertyKey(child, parent) &&
+                !isStaticPropertyKey(child as Node, parent as Node) &&
                 // do not record if this is a default value
                 // assignment of a destructured variable
                 !(

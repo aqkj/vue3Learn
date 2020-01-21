@@ -5,14 +5,17 @@ import replace from '@rollup/plugin-replace'
 import alias from '@rollup/plugin-alias'
 import json from '@rollup/plugin-json'
 import lernaJson from './lerna.json'
-
+// 判断是否存在target目标
 if (!process.env.TARGET) {
   throw new Error('TARGET package must be specified via --environment flag.')
 }
-
+// 获取包文件夹
 const packagesDir = path.resolve(__dirname, 'packages')
+// 获取对应target的包文件
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
+// 获取包target包的名称
 const name = path.basename(packageDir)
+// 解析对应包内的文件夹名称
 const resolve = p => path.resolve(packageDir, p)
 const pkg = require(resolve(`package.json`))
 const packageOptions = pkg.buildOptions || {}
