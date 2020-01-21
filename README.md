@@ -1,33 +1,9 @@
-# vue-next [![CircleCI](https://circleci.com/gh/vuejs/vue-next.svg?style=svg&circle-token=fb883a2d0a73df46e80b2e79fd430959d8f2b488)](https://circleci.com/gh/vuejs/vue-next)
+# vue3源代码项目学习
+> vue3版本为Alpha，内含中文注释/个人理解 更新ing...
 
-## Status: Pre-Alpha.
+如果有写错的地方欢迎大家提issues.
 
-We have achieved most of the architectural goals and new features planned for v3:
+## 其他
 
-- Compiler
-  - [x] Modular architecture
-  - [x] "Block tree" optimization
-  - [x] More aggressive static tree hoisting
-  - [x] Source map support
-  - [x] Built-in identifier prefixing (aka "stripWith")
-  - [x] Built-in pretty-printing
-  - [x] Lean ~10kb brotli-compressed browser build after dropping source map and identifier prefixing
+- [vue2源码学习仓库](https://github.com/aqkj/vue2Lean)
 
-- Runtime
-  - [x] Significantly faster
-  - [x] Simultaneous Composition API + Options API support, **with typings**
-  - [x] Proxy-based change detection
-  - [x] Fragments
-  - [x] Portals
-  - [x] Suspense w/ `async setup()`
-
-## Major TODOs:
-
-- [ ] SFC compiler
-- [ ] Server-side rendering
-
-Also note that the current implementation requires native ES2015+ in the runtime environment and does not support IE11 (yet).
-
-## Contribution
-
-See [Contributing Guide](https://github.com/vuejs/vue-next/blob/master/.github/contributing.md).
