@@ -46,7 +46,7 @@
     "lru-cache": "^5.1.1",
     "minimist": "^1.2.0",
     "monaco-editor": "^0.19.3",
-    "postcss": "^7.0.26",
+    "postcss": "^8.2.10",
     "postcss-selector-parser": "^6.0.2",
     "prettier": "~1.14.0",
     "puppeteer": "^2.0.0",
